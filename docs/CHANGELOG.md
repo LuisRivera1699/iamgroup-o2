@@ -4,6 +4,7 @@ Entradas breves. Formato: `## YYYY-MM-DD` y viñetas.
 
 ## 2026-04-23
 
+- Home: nueva seccion compacta `Nuestras alianzas` debajo de `Nuestras cifras`, con fondo azul claro de seccion completa, logos de SBS/CAVALI centrados en mayor escala y tooltip flotante profesional en hover/focus con contexto institucional de cada alianza.
 - Home: se añadió un patrón reusable `ScrollReveal` para animar por scroll elementos internos del homepage (títulos, tarjetas, contenedores y CTAs en `nosotros` y `métricas`), más una entrada escalonada del contenido textual/acciones del hero; todo con respeto a `prefers-reduced-motion`.
 - Nueva regla `.cursor/rules/iamgroup-ui-scroll-entry-exit.mdc`: la animación se aplica por componente interno (no solo por sección), con `stagger` suave y transiciones sobrias ligadas al viewport.
 - Header: cambiado de `sticky` a **`fixed inset-x-0`** — resuelve (1) franja azul de `body` visible por el hack de margen negativo impreciso, (2) header siempre sólido en páginas internas porque el transparente sobre `body` se confundía con el color de fondo, y (3) menú móvil que empujaba el contenido en lugar de superponerse. Panel móvil con `bg-[#0f2d4e]` siempre explícito. `globals.css` define `--header-h` con `@media sm`. Páginas internas usan `pt-[calc(var(--header-h)+3rem)]`.

@@ -1,0 +1,24 @@
+---
+description: Contenido UI con entrada y salida animada coherente al scroll
+alwaysApply: true
+---
+
+# Animaciones por scroll (entrada/salida)
+
+Cada sección visible debe distribuir animación en sus **componentes internos** (títulos, subtítulos, tarjetas, contenedores, botones y bloques informativos), con entrada/salida vinculada al avance de scroll del usuario.
+
+## Criterio obligatorio
+
+- Activar la animación al entrar al viewport y revertirla al salir, evitando estados "pegados".
+- Animar por pieza interna y no solo por sección completa.
+- Mantener animaciones discretas y lúdicas: `opacity` + desplazamiento corto (`translate-x` o `translate-y`). Evitar rebotes, zoom agresivo o giros.
+- Duración orientativa: `500ms` a `800ms`; easing `ease-out` o equivalente sobrio.
+- Coordinar umbral y `rootMargin` para que la transición ocurra de forma natural al leer, no tarde ni demasiado pronto.
+- Usar `stagger` suave entre elementos hermanos (p. ej. 60-160ms) para mejorar ritmo visual.
+- Respetar `prefers-reduced-motion`: sin transformaciones ni transiciones complejas cuando el usuario lo solicita.
+- Priorizar rendimiento: evitar animar propiedades costosas (layout grande, sombras pesadas, filtros intensos).
+
+## Sanitización mínima en cada entrega de UI
+
+- Si se agrega o modifica una sección visible, validar que siga el patrón de entrada/salida por scroll.
+- Si no aplica animación en un bloque concreto, documentar el motivo (p. ej., requisito funcional o accesibilidad).

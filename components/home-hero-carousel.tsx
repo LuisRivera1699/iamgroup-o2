@@ -4,42 +4,50 @@ import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useId, useRef, useState } from "react";
 
+type HeroSlide = {
+  id: string;
+  image: string;
+  kicker: string;
+  title: string;
+  lead: string;
+  cta: { href: string; label: string };
+  ctaSecondary?: { href: string; label: string };
+};
+
 /** Fondos desde Unsplash (licencia Unsplash); no usar `references/` como origen en código. */
-const SLIDES = [
+const SLIDES: readonly HeroSlide[] = [
   {
-    id: "institucional",
+    id: "enfoque-iamgroup",
     image:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=80",
-    kicker: "Grupo multiárea",
-    title: "Soluciones financieras sólidas, con visión de largo plazo",
+      "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=2000&q=80",
+    kicker: "Enfoque IAMGroup",
+    title: "Especialistas en asesoría y gestión de inversiones",
     lead:
-      "Acompañamos a empresas e inversionistas con criterio institucional, gobierno corporativo y un servicio claro, cercano y alineado a metas reales: su liquidez, su crecimiento y su reputación.",
-    cta: { href: "/nosotros", label: "Nosotros" },
-    ctaSecondary: { href: "/contacto", label: "Contacto" },
+      "Integramos análisis financiero, estrategia y acompañamiento continuo para inversionistas y empresas que buscan financiamiento con respaldo experto.",
+    cta: { href: "/inversiones", label: "Ir a inversiones" },
+    ctaSecondary: { href: "/financiamiento", label: "Ir a financiamiento" },
+  },
+  {
+    id: "inversionistas",
+    image:
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=2000&q=80",
+    kicker: "Para inversionistas",
+    title: "Impulse su capital con oportunidades analizadas en profundidad",
+    lead:
+      "Si busca inversiones, le guiamos con criterios técnicos, transparencia y seguimiento profesional para decidir con confianza.",
+    cta: { href: "/inversiones", label: "Busco inversiones" },
   },
   {
     id: "financiamiento",
     image:
-      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=2000&q=80",
-    kicker: "Financiamiento",
-    title: "Estructuramos el capital que su operación exige en cada fase",
+      "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=2000&q=80",
+    kicker: "Para empresas y personas",
+    title: "Encuentre el financiamiento adecuado para avanzar con solidez",
     lead:
-      "Diseñamos y coordinamos alternativas de deuda o capital de acuerdo con su sector, flujo de caja y horizonte de inversión: covenants entendibles, plazos sustentables y acompañamiento en la ejecución.",
-    cta: { href: "/financiamiento", label: "Conocer opciones" },
-    ctaSecondary: { href: "/contacto", label: "Hablar con un asesor" },
+      "Si busca financiamiento, estructuramos alternativas de deuda y capital según su etapa, flujo y objetivos de crecimiento.",
+    cta: { href: "/financiamiento", label: "Busco financiamiento" },
   },
-  {
-    id: "inversiones",
-    image:
-      "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=2000&q=80",
-    kicker: "Inversiones",
-    title: "Inversión con análisis riguroso y transparencia en criterio",
-    lead:
-      "Unimos rigor, diversificación y seguimiento continuo. Productos y mandatos puestos al servicio de perfiles exigentes —sin promesas ruidosas, con trazabilidad y foco en resultados ajustados a su perfil de riesgo.",
-    cta: { href: "/inversiones", label: "Ver enfoque" },
-    ctaSecondary: { href: "/contacto", label: "Solicitar información" },
-  },
-] as const;
+];
 
 const AUTO_MS = 7000;
 
@@ -183,28 +191,78 @@ export function HomeHeroCarousel() {
                   />
                 </div>
                 <div className="relative z-10 flex h-full flex-col justify-end px-4 pb-24 pt-32 sm:px-6 sm:pb-28 sm:pt-40 lg:mx-auto lg:max-w-7xl lg:px-8 lg:pb-32">
-                  <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#c0deff]/90">
+                  <p
+                    className={[
+                      "text-xs font-medium uppercase tracking-[0.2em] text-[#c0deff]/90",
+                      !reducedMotion
+                        ? `transform-gpu transition-[opacity,transform] duration-700 ease-out ${active ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`
+                        : "",
+                    ].join(" ")}
+                    style={
+                      reducedMotion
+                        ? undefined
+                        : { transitionDelay: active ? "80ms" : "0ms" }
+                    }
+                  >
                     {slide.kicker}
                   </p>
-                  <h2 className="mt-2 max-w-[20ch] text-balance text-3xl font-semibold leading-[1.12] tracking-tight text-white sm:max-w-[22ch] sm:text-4xl lg:max-w-[26ch] lg:text-5xl">
+                  <h2
+                    className={[
+                      "mt-2 max-w-[20ch] text-balance text-3xl font-semibold leading-[1.12] tracking-tight text-white sm:max-w-[22ch] sm:text-4xl lg:max-w-[26ch] lg:text-5xl",
+                      !reducedMotion
+                        ? `transform-gpu transition-[opacity,transform] duration-700 ease-out ${active ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`
+                        : "",
+                    ].join(" ")}
+                    style={
+                      reducedMotion
+                        ? undefined
+                        : { transitionDelay: active ? "150ms" : "0ms" }
+                    }
+                  >
                     {slide.title}
                   </h2>
-                  <p className="mt-4 max-w-2xl text-pretty text-base leading-relaxed text-[#d1d1d1] sm:text-lg">
+                  <p
+                    className={[
+                      "mt-4 max-w-2xl text-pretty text-base leading-relaxed text-[#d1d1d1] sm:text-lg",
+                      !reducedMotion
+                        ? `transform-gpu transition-[opacity,transform] duration-700 ease-out ${active ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`
+                        : "",
+                    ].join(" ")}
+                    style={
+                      reducedMotion
+                        ? undefined
+                        : { transitionDelay: active ? "230ms" : "0ms" }
+                    }
+                  >
                     {slide.lead}
                   </p>
-                  <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
+                  <div
+                    className={[
+                      "mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4",
+                      !reducedMotion
+                        ? `transform-gpu transition-[opacity,transform] duration-700 ease-out ${active ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`
+                        : "",
+                    ].join(" ")}
+                    style={
+                      reducedMotion
+                        ? undefined
+                        : { transitionDelay: active ? "320ms" : "0ms" }
+                    }
+                  >
                     <Link
                       href={slide.cta.href}
-                      className="inline-flex min-h-11 min-w-[10rem] items-center justify-center rounded-full bg-white px-6 text-sm font-semibold text-[#0f2d4e] transition-opacity hover:opacity-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c0deff] sm:min-h-12"
+                      className="inline-flex min-h-11 min-w-[10rem] cursor-pointer items-center justify-center rounded-full bg-white px-6 text-sm font-semibold text-[#0f2d4e] transition-opacity hover:opacity-95 active:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c0deff] sm:min-h-12"
                     >
                       {slide.cta.label}
                     </Link>
-                    <Link
-                      href={slide.ctaSecondary.href}
-                      className="inline-flex min-h-11 min-w-[10rem] items-center justify-center rounded-full border border-white/30 bg-white/5 px-6 text-sm font-medium text-white backdrop-blur-sm transition-colors hover:border-white/50 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c0deff] sm:min-h-12"
-                    >
-                      {slide.ctaSecondary.label}
-                    </Link>
+                    {slide.ctaSecondary ? (
+                      <Link
+                        href={slide.ctaSecondary.href}
+                        className="inline-flex min-h-11 min-w-[10rem] cursor-pointer items-center justify-center rounded-full border border-white/30 bg-white/5 px-6 text-sm font-medium text-white backdrop-blur-sm transition-colors hover:border-white/50 hover:bg-white/10 active:bg-white/15 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c0deff] sm:min-h-12"
+                      >
+                        {slide.ctaSecondary.label}
+                      </Link>
+                    ) : null}
                   </div>
                 </div>
               </div>

@@ -23,6 +23,7 @@ Mantenida **en el repo**; el agente y el equipo deben **actualizarla** cuando ca
 - Paleta: `colors/colors.md` en la raíz del repo.
 - **Responsive:** toda la UI es **mobile-first** (misma calidad en móvil que en desktop); regla `iamgroup-ui-responsive` en `.cursor/rules/`.
 - **Controles:** enlaces y botones con `cursor-pointer` y estados idle, hover, active, focus y disabled; regla `iamgroup-ui-interactive-states` en `.cursor/rules/`.
+- **Scroll motion:** cada sección debe animar sus elementos internos (títulos, tarjetas, CTAs, contenedores) con entrada/salida coherente al scroll (`opacity + translate` sobrio + stagger), respetando `prefers-reduced-motion`; regla `iamgroup-ui-scroll-entry-exit`.
 - **Activos:** iconos en SVG; imágenes de bancos gratuitos (p. ej. Unsplash, Pexels) con licencia adecuada y verificación de que cargan; regla `iamgroup-ui-assets` en `.cursor/rules/`.
 - **Carpetas personales** (`current-page/`, `references/`): el agente no las indexa para trabajar en el sitio; `references/` no se usa en `src` — ver `iamgroup-user-private-folders`. El usuario puede @ archivos bajo `references/` en el chat; si el @ falla, comentar `references/` en `.cursorignore`.
 - Reglas de Cursor: `.cursor/rules/`.

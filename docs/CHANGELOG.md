@@ -4,6 +4,7 @@ Entradas breves. Formato: `## YYYY-MM-DD` y viñetas.
 
 ## 2026-04-23
 
+- Nosotros (sección de soluciones): se retiraron los párrafos descriptivos de las cards `Inversiones` y `Financiamiento`, dejando un bloque más sintético para la opción de diseño 2.
 - Home (sección `Nosotros`): se retiró el párrafo descriptivo de las dos cards de acceso (`Inversiones` y `Financiamiento`) para un bloque más directo y limpio en la opción de diseño 2.
 - Home (`Por qué elegirnos`): las cards de `Experiencia probada y comprobada` quedaron simplificadas a solo ícono + título; se retiraron el texto adicional y el contenido revelado en hover/click.
 - Home (Por qué elegirnos): ícono `Experiencia y conocimiento` rediseñado en SVG propio con composición clásica (medalla con estrella en amarillo corporativo y libro abierto con páginas) para ganar estética, coherencia de marca y alejarse del aspecto genérico anterior.

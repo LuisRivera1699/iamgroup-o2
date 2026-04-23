@@ -4,6 +4,13 @@ Entradas breves. Formato: `## YYYY-MM-DD` y viñetas.
 
 ## 2026-04-23
 
+- Gobierno corporativo: se reemplazó el placeholder por una sección completa de `Buen gobierno corporativo` inspirada en las referencias visuales, con bloque institucional, tarjetas de `Directorio`/`Oficial de Cumplimiento Corporativo`/`Comités` y panel de `Compromiso con grupos de interés`.
+- Gobierno corporativo (pilares): cards de `Directorio`, `Oficial de Cumplimiento Corporativo` y `Comités` estandarizadas con la misma estructura interna (zona de ícono, jerarquía de título, cuerpo y bloque de detalle) para lectura y alturas más coherentes.
+- Gobierno corporativo: se añadió como última sección `Nuestras alianzas` reutilizando el bloque de Home para mantener respaldo institucional y consistencia entre vistas.
+- Gobierno corporativo: nueva iconografía SVG propia en `public/icons/gobierno-corporativo/` para integridad/transparencia, elementos de control, pilares de gobierno y acciones con stakeholders, manteniendo coherencia visual de marca.
+- Gobierno corporativo: nuevo hero institucional con imagen de fondo (Unsplash), overlays para contraste, copy orientado a confianza/estructura y CTA `Conoce más` con ancla al siguiente bloque.
+- Gobierno corporativo: el ancla `#gobierno-corporativo-detalle` quedó conectada a la nueva sección de contenido para mantener el flujo de lectura desde el CTA `Conoce más`.
+- Global UX: habilitado `scroll-behavior: smooth` en `html` con fallback automático para `prefers-reduced-motion`.
 - Financiamiento: la vista dejó el placeholder y ahora replica la estructura inicial de Inversiones con hero + sección de productos traslapada, copy propio orientado a liquidez empresarial y CTA `Contacta a un asesor` hacia `/contacto`.
 - Financiamiento (productos): nuevo bloque comercial con 4 soluciones (`Factoring`, `Confirming`, `Adelanto de flujos`, `Estructuración y financiamiento a mediano plazo`), detalle visible por card e iconografía SVG propia para coherencia visual con marca.
 - Financiamiento: se añadió al cierre de la página la sección `Nuestras alianzas` reutilizada desde Home para mantener respaldo institucional y consistencia visual entre vistas.

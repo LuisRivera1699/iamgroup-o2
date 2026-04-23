@@ -4,6 +4,23 @@ Entradas breves. Formato: `## YYYY-MM-DD` y viñetas.
 
 ## 2026-04-23
 
+- Nosotros (Directorio): corregido el espacio vacío excesivo en tarjetas; se retiró la altura mínima global y se normalizó solo el bloque de nombre/cargo para mantener coherencia sin huecos.
+- Nosotros (Directorio): se normalizó la altura de tarjetas para mantener dimensiones coherentes entre perfiles en una sola fila/carrusel, incluso cuando cambian los saltos de línea en nombres y cargos.
+- Nosotros (Directorio): ahora nunca se divide en dos filas; mantiene una sola fila mientras haya espacio y, al no caber, cambia a carrusel automático con drag, flechas y puntos de navegación.
+- Nosotros: en `Nuestras cifras` se ocultó el botón `Conoce más` cuando el bloque se renderiza dentro de `/nosotros`, manteniéndolo activo en Home.
+- Nosotros: se añadieron al final de la página las secciones `Nuestras cifras` y `Nuestras alianzas` reutilizando los bloques del home para completar el cierre institucional.
+- Nosotros (valores): interacción hover refinada; cada valor ahora resalta con fondo amarillo y texto azul oscuro para un acento más alineado a marca.
+- Nosotros (core/diagrama): nodo central actualizado a círculo oscuro con etiqueta `Núcleo` + logo IAMGroup para mejorar contraste y jerarquía de marca.
+- Nosotros (core/diagrama): refinada la composición visual en desktop con grilla 3x3 y conectores centrados para eliminar solapes y mejorar legibilidad de los bloques estratégicos.
+- Nosotros (core): sección rediseñada a formato visual tipo diagrama estratégico (nodo central IAMGroup + bloques conectados de Nosotros/Propuesta/Misión/Visión en desktop) con versión compacta en móvil.
+- Nosotros (valores): cada valor ahora resalta en amarillo corporativo al pasar el mouse, manteniendo separadores sobrios para una lectura clara.
+- Nosotros: nueva sección clara de información core (`Nosotros`, `Propuesta de valor`, `Misión`, `Visión`) con layout en cards y bloque tipográfico de `Nuestros valores` para reforzar claridad, confianza y coherencia institucional.
+- Nosotros (Directorio): el CTA textual `Ver LinkedIn` fue reemplazado por el logo de LinkedIn sin contenedor circular y reubicado en la esquina derecha del bloque nombre/cargo, manteniendo accesibilidad con `aria-label`.
+- Nosotros: nueva sección `Directorio` con 3 perfiles ejecutivos en cards (foto, nombre, cargo, enlace a LinkedIn y descripción visible en hover/focus) para reforzar confianza y claridad institucional.
+- Nosotros (cards): alineación interna ajustada para mejor consistencia visual entre columnas y `chips` actualizados a amarillo corporativo.
+- Nosotros: segunda sección incorporada y expandida con tarjetas traslapadas al hero (Inversiones y Financiamiento), manteniendo síntesis de oferta y resaltando líneas clave de productos/soluciones.
+- Nosotros (hero): se retiró el rótulo superior de sección y se destacó en amarillo corporativo una frase clave del titular para reforzar jerarquía visual.
+- Nosotros: hero section renovado con imagen de fondo de stock (Unsplash), overlay para legibilidad, titular corto de impacto, texto institucional resumido y CTA `Contacta a un asesor` hacia `/contacto`.
 - Home: se retiró el aviso textual bajo el hero sobre fotografías de fondo ilustrativas.
 - Footer: botón `Mis inversiones` reubicado debajo del logo para mejorar jerarquía visual y mantener consistencia con el header.
 - Global: nuevo `SiteFooter` simple/profesional en azul oscuro corporativo (`#0f2d4e`) con logo IAMGroup, enlaces de navegación y legales, botón `Mis inversiones` consistente con el header, copyright dinámico (`© año actual`) y crédito externo a Team Aurora.

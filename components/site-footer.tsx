@@ -70,7 +70,7 @@ export function SiteFooter() {
               rel="noopener noreferrer"
               className="cursor-pointer font-semibold text-[#c0deff] transition-colors hover:text-white active:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c0deff]/80"
             >
-              Team Aurora AI Driven Software Factory
+              Aurora AI Driven Software Factory
             </a>
           </p>
         </div>

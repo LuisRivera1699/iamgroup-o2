@@ -79,7 +79,11 @@ function CountUpNumber({
   );
 }
 
-export function HomeMetricsSection() {
+type HomeMetricsSectionProps = {
+  showCta?: boolean;
+};
+
+export function HomeMetricsSection({ showCta = true }: HomeMetricsSectionProps) {
   const sectionRef = useRef<HTMLElement | null>(null);
   const [hasEntered, setHasEntered] = useState(false);
 
@@ -144,17 +148,19 @@ export function HomeMetricsSection() {
             </ScrollReveal>
           </div>
 
-          <ScrollReveal direction="right" delayMs={170}>
-            <Link
-              href="/nosotros"
-              className="inline-flex min-h-11 w-fit cursor-pointer items-center gap-2 rounded-full border border-[#c0deff]/60 bg-[#c0deff]/10 px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#c0deff]/20 active:bg-[#c0deff]/25 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c0deff] sm:min-h-12"
-            >
-              Conoce más
-              <span aria-hidden className="text-base leading-none">
-                →
-              </span>
-            </Link>
-          </ScrollReveal>
+          {showCta ? (
+            <ScrollReveal direction="right" delayMs={170}>
+              <Link
+                href="/nosotros"
+                className="inline-flex min-h-11 w-fit cursor-pointer items-center gap-2 rounded-full border border-[#c0deff]/60 bg-[#c0deff]/10 px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#c0deff]/20 active:bg-[#c0deff]/25 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c0deff] sm:min-h-12"
+              >
+                Conoce más
+                <span aria-hidden className="text-base leading-none">
+                  →
+                </span>
+              </Link>
+            </ScrollReveal>
+          ) : null}
         </div>
 
         <ScrollReveal direction="up" delayMs={90} threshold={0.2}>

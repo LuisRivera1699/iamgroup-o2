@@ -4,6 +4,11 @@ Entradas breves. Formato: `## YYYY-MM-DD` y viñetas.
 
 ## 2026-04-23
 
+- Gobierno corporativo (pilares): se eliminó el espacio vertical innecesario en mobile; la estandarización de altura y alineación del CTA se mantiene enfocada a desktop (`lg`) para evitar tarjetas estiradas.
+- Gobierno corporativo (pilares): refinada la alineación interna de cards con una franja superior uniforme (ícono+título) y CTA anclado al pie, para alinear visualmente los botones `Ver más` entre las tres tarjetas.
+- Gobierno corporativo (pilares): se estandarizó la altura de las cards de `Directorio`, `Oficial de Cumplimiento Corporativo` y `Comités` para que mantengan dimensiones uniformes en la misma fila.
+- Gobierno corporativo (pilares): las cards de `Directorio`, `Oficial de Cumplimiento Corporativo` y `Comités` pasaron a formato sintético (ícono + título + `Ver más`) con modal centrado para el contenido detallado, replicando el patrón de Inversiones/Financiamiento.
+- Gobierno corporativo (grupos de interés): se retiró el texto descriptivo del bloque de `Compromiso con grupos de interés` y se reajustó su layout para eliminar espacios en blanco y mantener alineación visual.
 - Inversiones y Financiamiento (cards de productos): se centró verticalmente el contenido interno (ícono, título y CTA) para corregir el desbalance visual entre tarjetas de distintas alturas.
 - Financiamiento (sección productos): se retiró el párrafo introductorio sobre liquidez y capital de trabajo, y las cards de `Factoring`, `Confirming`, `Adelanto de flujos` y `Estructuración y financiamiento a mediano plazo` quedaron en formato sintético (ícono + título + `Ver más`).
 - Financiamiento (sección productos): el detalle que antes estaba dentro de cada card ahora se muestra en modal centrado al hacer click en `Ver más`, con cierre por botón, fondo o tecla `Escape`, y composición visual alineada al patrón premium aplicado en Inversiones.

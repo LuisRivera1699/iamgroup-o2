@@ -5,6 +5,20 @@ Entradas breves. Formato: `## YYYY-MM-DD` y viñetas.
 ## 2026-04-23
 
 - Contacto (build): `ContactoAdvisorFormSection` ahora se renderiza dentro de `Suspense` en `/contacto` para cumplir con Next.js al usar `useSearchParams` y evitar el fallo de prerender en despliegues estáticos de Vercel.
+- Gobierno corporativo (pilares): se eliminó el espacio vertical innecesario en mobile; la estandarización de altura y alineación del CTA se mantiene enfocada a desktop (`lg`) para evitar tarjetas estiradas.
+- Gobierno corporativo (pilares): refinada la alineación interna de cards con una franja superior uniforme (ícono+título) y CTA anclado al pie, para alinear visualmente los botones `Ver más` entre las tres tarjetas.
+- Gobierno corporativo (pilares): se estandarizó la altura de las cards de `Directorio`, `Oficial de Cumplimiento Corporativo` y `Comités` para que mantengan dimensiones uniformes en la misma fila.
+- Gobierno corporativo (pilares): las cards de `Directorio`, `Oficial de Cumplimiento Corporativo` y `Comités` pasaron a formato sintético (ícono + título + `Ver más`) con modal centrado para el contenido detallado, replicando el patrón de Inversiones/Financiamiento.
+- Gobierno corporativo (grupos de interés): se retiró el texto descriptivo del bloque de `Compromiso con grupos de interés` y se reajustó su layout para eliminar espacios en blanco y mantener alineación visual.
+- Inversiones y Financiamiento (cards de productos): se centró verticalmente el contenido interno (ícono, título y CTA) para corregir el desbalance visual entre tarjetas de distintas alturas.
+- Financiamiento (sección productos): se retiró el párrafo introductorio sobre liquidez y capital de trabajo, y las cards de `Factoring`, `Confirming`, `Adelanto de flujos` y `Estructuración y financiamiento a mediano plazo` quedaron en formato sintético (ícono + título + `Ver más`).
+- Financiamiento (sección productos): el detalle que antes estaba dentro de cada card ahora se muestra en modal centrado al hacer click en `Ver más`, con cierre por botón, fondo o tecla `Escape`, y composición visual alineada al patrón premium aplicado en Inversiones.
+- Inversiones (cards de productos): refinada la composición visual de `Fondo Medicash/Soles` y `Fondo Facturas Dólares` con layout más compacto y balanceado (fondo con gradiente suave, cápsula para ícono y CTA integrado), eliminando el vacío visual de la versión previa.
+- Inversiones (sección productos): se retiró el párrafo de propuesta competitiva/diversificada y las cards `Fondo Medicash/Soles` y `Fondo Facturas Dólares` quedaron en formato sintético (solo ícono + título) con accionable `Ver más`.
+- Inversiones (sección productos): el contenido descriptivo que estaba dentro de cada card ahora se muestra en un modal centrado al hacer click en `Ver más`, con cierre por botón, fondo o tecla `Escape`.
+- Nosotros (sección de soluciones): se retiraron los párrafos descriptivos de las cards `Inversiones` y `Financiamiento`, dejando un bloque más sintético para la opción de diseño 2.
+- Home (sección `Nosotros`): se retiró el párrafo descriptivo de las dos cards de acceso (`Inversiones` y `Financiamiento`) para un bloque más directo y limpio en la opción de diseño 2.
+- Home (`Por qué elegirnos`): las cards de `Experiencia probada y comprobada` quedaron simplificadas a solo ícono + título; se retiraron el texto adicional y el contenido revelado en hover/click.
 - Home (Por qué elegirnos): ícono `Experiencia y conocimiento` rediseñado en SVG propio con composición clásica (medalla con estrella en amarillo corporativo y libro abierto con páginas) para ganar estética, coherencia de marca y alejarse del aspecto genérico anterior.
 - Home (Por qué elegirnos): ícono `Inversiones a medida y seguras` rediseñado en SVG propio con escudo institucional, sello amarillo con check y barras ascendentes, manteniendo coherencia visual con el nuevo ícono de experiencia.
 - Inversiones (Fondo Medicash/Soles): ícono simplificado a una sola moneda institucional con anillo externo azul, aro interior en azul claro, acento amarillo de marca y símbolo `S/.` vectorial al centro para lectura nítida del producto.

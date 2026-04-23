@@ -6,8 +6,6 @@ const PILLAR_CARDS = [
     id: "inversiones",
     audience: "Para inversionistas y familias",
     title: "Estrategias patrimoniales con criterio conservador",
-    description:
-      "Diseñamos alternativas diversificadas para proteger y hacer crecer patrimonio con acompañamiento experto y visión de largo plazo.",
     href: "/inversiones",
     cta: "Explorar inversiones",
     tone: "sky",
@@ -16,8 +14,6 @@ const PILLAR_CARDS = [
     id: "financiamiento",
     audience: "Para empresas en expansión",
     title: "Financiamiento oportuno para objetivos concretos",
-    description:
-      "Estructuramos soluciones flexibles de mediano y corto plazo para que su empresa avance con orden financiero y velocidad.",
     href: "/financiamiento",
     cta: "Ver financiamiento",
     tone: "navy",
@@ -110,9 +106,6 @@ export function HomeAboutEntrySection() {
                   <h3 className="mt-5 text-balance text-2xl font-semibold leading-[1.15]">
                     {card.title}
                   </h3>
-                  <p className="mt-4 max-w-[42ch] text-sm leading-relaxed text-[#1b3859] sm:text-base">
-                    {card.description}
-                  </p>
 
                   <ScrollReveal
                     direction="up"

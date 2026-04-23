@@ -12,8 +12,6 @@ const SOLUTION_CARDS = [
     id: "inversiones",
     badge: "Para inversionistas",
     title: "Inversiones",
-    description:
-      "Diseñamos alternativas para un portafolio diversificado, conservador y rentable según su perfil de riesgo.",
     highlights: ["Fondo Medicash/Soles", "Fondo Facturas Dólares"],
     href: "/inversiones",
     cta: "Ver inversiones",
@@ -23,8 +21,6 @@ const SOLUTION_CARDS = [
     id: "financiamiento",
     badge: "Para empresas",
     title: "Financiamiento",
-    description:
-      "Estructuramos soluciones oportunas y flexibles para impulsar crecimiento empresarial con ejecución ágil.",
     highlights: [
       "Factoring",
       "Confirming",
@@ -213,9 +209,6 @@ export default function NosotrosPage() {
                       <h3 className="mt-4 text-3xl font-semibold leading-tight">
                         {card.title}
                       </h3>
-                      <p className="mt-3 max-w-[56ch] text-sm leading-relaxed text-[#1b3859] sm:text-base">
-                        {card.description}
-                      </p>
 
                       <ul className="mt-5 flex-1 space-y-2">
                         {card.highlights.map((item) => (

@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useEffect, useMemo, useState } from "react";
 import { ScrollReveal } from "@/components/scroll-reveal";
 
 const GOVERNANCE_PILLARS = [
@@ -56,6 +59,34 @@ const STAKEHOLDER_ACTIONS = [
 ] as const;
 
 export function GobiernoCorporativoStructureSection() {
+  const [activePillarId, setActivePillarId] = useState<
+    (typeof GOVERNANCE_PILLARS)[number]["id"] | null
+  >(null);
+
+  const activePillar = useMemo(
+    () => GOVERNANCE_PILLARS.find((pillar) => pillar.id === activePillarId),
+    [activePillarId],
+  );
+
+  useEffect(() => {
+    if (!activePillar) return;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setActivePillarId(null);
+      }
+    };
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [activePillar]);
+
   return (
     <section
       id="gobierno-corporativo-detalle"
@@ -165,37 +196,38 @@ export function GobiernoCorporativoStructureSection() {
               className="h-full"
             >
               <li className="h-full">
-                <article className="flex h-full flex-col rounded-2xl border border-[#c2d9ec] bg-white p-5 shadow-[0_20px_42px_-32px_rgba(15,45,78,0.35)] sm:p-6">
-                  <div className="flex h-14 items-center sm:h-16">
-                    <Image
-                      src={pillar.iconSrc}
-                      alt=""
-                      width={176}
-                      height={120}
-                      aria-hidden
-                      className="h-12 w-auto object-contain sm:h-14"
-                    />
-                  </div>
-                  <h3 className="mt-4 text-2xl font-semibold leading-tight text-[#0f2d4e] lg:min-h-[4.6rem]">
-                    {pillar.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-[#1d3f62] sm:text-base lg:min-h-[8.6rem]">
-                    {pillar.summary}
-                  </p>
-                  <div className="mt-4 rounded-xl border border-[#b8d0e5] bg-[#edf5fc] px-4 py-3">
-                    <ul className="space-y-2">
-                      {pillar.detailPoints.map((detailPoint) => (
-                        <li
-                          key={detailPoint}
-                          className="flex items-start gap-2 text-sm leading-relaxed text-[#1d3f62]"
-                        >
-                          <span aria-hidden className="mt-0.5 text-[#0f2d4e]">
-                            •
-                          </span>
-                          <span>{detailPoint}</span>
-                        </li>
-                      ))}
-                    </ul>
+                <article className="group relative overflow-hidden rounded-2xl border border-[#b8d0e5] bg-gradient-to-br from-white via-[#f8fbff] to-[#ecf4fb] p-5 text-left shadow-[0_20px_42px_-32px_rgba(15,45,78,0.35)] transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-[0_26px_52px_-32px_rgba(15,45,78,0.45)] sm:p-6 lg:flex lg:h-full lg:flex-col">
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute -right-10 -top-10 h-24 w-24 rounded-full bg-[#c0deff]/40 blur-2xl"
+                  />
+                  <div className="relative flex flex-col gap-5 lg:h-full">
+                    <div className="flex items-start gap-4 lg:min-h-[7rem]">
+                      <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-[#c2d9ec] bg-white/95 shadow-[0_10px_26px_-20px_rgba(15,45,78,0.55)] sm:h-16 sm:w-16">
+                        <Image
+                          src={pillar.iconSrc}
+                          alt=""
+                          width={176}
+                          height={120}
+                          aria-hidden
+                          className="h-10 w-auto object-contain sm:h-12"
+                        />
+                      </div>
+                      <h3 className="text-balance text-2xl font-semibold leading-tight text-[#0f2d4e]">
+                        {pillar.title}
+                      </h3>
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={() => setActivePillarId(pillar.id)}
+                      className="inline-flex min-h-11 w-fit cursor-pointer items-center justify-center gap-2 rounded-full border border-[#0f2d4e]/20 bg-[#0f2d4e] px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#143c69] active:bg-[#1d3f62] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0f2d4e] sm:min-h-12 lg:mt-auto"
+                    >
+                      Ver más
+                      <span aria-hidden className="text-base leading-none">
+                        →
+                      </span>
+                    </button>
                   </div>
                 </article>
               </li>
@@ -205,17 +237,10 @@ export function GobiernoCorporativoStructureSection() {
 
         <ScrollReveal direction="up" delayMs={120}>
           <div className="mt-8 rounded-3xl border border-[#b8d0e5] bg-[#dceaf7] p-6 shadow-[0_20px_40px_-34px_rgba(15,45,78,0.35)] lg:p-8">
-            <div className="grid gap-6 lg:grid-cols-[1.25fr_1.75fr] lg:items-start">
-              <div>
-                <h3 className="text-balance text-3xl font-semibold leading-tight text-[#0f2d4e] sm:text-4xl">
-                  Compromiso con grupos de interés
-                </h3>
-                <p className="mt-4 max-w-xl text-sm leading-relaxed text-[#1d3f62] sm:text-base">
-                  Mantenemos una relación cercana y transparente con
-                  inversionistas, empresas, reguladores y aliados, promoviendo
-                  decisiones alineadas al interés de largo plazo.
-                </p>
-              </div>
+            <div className="flex flex-col gap-5">
+              <h3 className="text-balance text-3xl font-semibold leading-tight text-[#0f2d4e] sm:text-4xl">
+                Compromiso con grupos de interés
+              </h3>
 
               <ul className="grid gap-3 sm:grid-cols-3">
                 {STAKEHOLDER_ACTIONS.map((action) => (
@@ -239,6 +264,58 @@ export function GobiernoCorporativoStructureSection() {
             </div>
           </div>
         </ScrollReveal>
+
+        {activePillar ? (
+          <div
+            className="fixed inset-0 z-[90] flex items-center justify-center bg-[#0f2d4e]/70 px-4 py-6 sm:px-6"
+            onClick={() => setActivePillarId(null)}
+          >
+            <div
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="gobierno-pilar-modal-title"
+              className="w-full max-w-2xl rounded-2xl border border-[#c2d9ec] bg-white p-5 shadow-[0_28px_60px_-32px_rgba(6,16,30,0.9)] sm:p-7"
+              onClick={(event) => event.stopPropagation()}
+            >
+              <div className="flex items-start justify-between gap-4">
+                <h3
+                  id="gobierno-pilar-modal-title"
+                  className="text-balance text-2xl font-semibold leading-tight text-[#0f2d4e] sm:text-3xl"
+                >
+                  {activePillar.title}
+                </h3>
+                <button
+                  type="button"
+                  onClick={() => setActivePillarId(null)}
+                  aria-label="Cerrar detalle del pilar"
+                  className="inline-flex min-h-11 min-w-11 cursor-pointer items-center justify-center rounded-full border border-[#0f2d4e]/20 bg-white text-xl leading-none text-[#0f2d4e] transition-colors hover:bg-[#edf5fc] active:bg-[#dce9f8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0f2d4e]"
+                >
+                  ×
+                </button>
+              </div>
+
+              <p className="mt-4 text-sm leading-relaxed text-[#1d3f62] sm:text-base">
+                {activePillar.summary}
+              </p>
+
+              <div className="mt-5 rounded-xl border border-[#b8d0e5] bg-[#edf5fc] px-4 py-3">
+                <ul className="space-y-2">
+                  {activePillar.detailPoints.map((detailPoint) => (
+                    <li
+                      key={detailPoint}
+                      className="flex items-start gap-2 text-sm leading-relaxed text-[#1d3f62] sm:text-base"
+                    >
+                      <span aria-hidden className="mt-0.5 text-[#0f2d4e]">
+                        •
+                      </span>
+                      <span>{detailPoint}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        ) : null}
       </div>
     </section>
   );

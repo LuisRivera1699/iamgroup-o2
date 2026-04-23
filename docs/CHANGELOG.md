@@ -4,6 +4,9 @@ Entradas breves. Formato: `## YYYY-MM-DD` y viñetas.
 
 ## 2026-04-23
 
+- Inversiones y Financiamiento (cards de productos): se centró verticalmente el contenido interno (ícono, título y CTA) para corregir el desbalance visual entre tarjetas de distintas alturas.
+- Financiamiento (sección productos): se retiró el párrafo introductorio sobre liquidez y capital de trabajo, y las cards de `Factoring`, `Confirming`, `Adelanto de flujos` y `Estructuración y financiamiento a mediano plazo` quedaron en formato sintético (ícono + título + `Ver más`).
+- Financiamiento (sección productos): el detalle que antes estaba dentro de cada card ahora se muestra en modal centrado al hacer click en `Ver más`, con cierre por botón, fondo o tecla `Escape`, y composición visual alineada al patrón premium aplicado en Inversiones.
 - Inversiones (cards de productos): refinada la composición visual de `Fondo Medicash/Soles` y `Fondo Facturas Dólares` con layout más compacto y balanceado (fondo con gradiente suave, cápsula para ícono y CTA integrado), eliminando el vacío visual de la versión previa.
 - Inversiones (sección productos): se retiró el párrafo de propuesta competitiva/diversificada y las cards `Fondo Medicash/Soles` y `Fondo Facturas Dólares` quedaron en formato sintético (solo ícono + título) con accionable `Ver más`.
 - Inversiones (sección productos): el contenido descriptivo que estaba dentro de cada card ahora se muestra en un modal centrado al hacer click en `Ver más`, con cierre por botón, fondo o tecla `Escape`.

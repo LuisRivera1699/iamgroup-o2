@@ -110,13 +110,13 @@ export function InversionesProductsSection() {
               className="h-full"
             >
               <li className="h-full">
-                <article className="group relative h-full overflow-hidden rounded-2xl border border-[#b8d0e5] bg-gradient-to-br from-white via-[#f8fbff] to-[#ecf4fb] p-5 text-left shadow-[0_20px_42px_-30px_rgba(15,45,78,0.38)] transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-[0_26px_52px_-32px_rgba(15,45,78,0.48)] sm:p-6">
+                <article className="group relative flex h-full flex-col justify-center overflow-hidden rounded-2xl border border-[#b8d0e5] bg-gradient-to-br from-white via-[#f8fbff] to-[#ecf4fb] p-5 text-left shadow-[0_20px_42px_-30px_rgba(15,45,78,0.38)] transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-[0_26px_52px_-32px_rgba(15,45,78,0.48)] sm:p-6">
                   <div
                     aria-hidden
                     className="pointer-events-none absolute -right-12 -top-12 h-28 w-28 rounded-full bg-[#c0deff]/40 blur-2xl"
                   />
 
-                  <div className="relative flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+                  <div className="relative my-auto flex w-full flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
                     <div className="flex items-center gap-4">
                       <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-[#c2d9ec] bg-white/95 shadow-[0_10px_26px_-20px_rgba(15,45,78,0.55)]">
                         <Image
